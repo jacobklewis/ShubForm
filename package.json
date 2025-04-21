@@ -1,0 +1,44 @@
+{
+  "name": "shubform",
+  "version": "0.0.1",
+  "description": "Shubform is a static website generator",
+  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build:less": "lessc styles/main.less public/styles/main.css",
+    "build:js": "tsc",
+    "build:copy-assets": "copyfiles -u 1 'src/nativeComponents/**/*' dist/",
+    "build": "npm run build:copy-assets && npm run build:less && npm run build:js && node ./dist/index.js",
+    "start": "npm run build && node ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "shub",
+    "static",
+    "website",
+    "generator"
+  ],
+  "author": "Jacob K Lewis",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "front-matter": "^4.0.2",
+    "highlight.js": "^11.11.1",
+    "js-yaml": "^4.1.0",
+    "marked": "^15.0.8",
+    "marked-highlight": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.14.1",
+    "copyfiles": "^2.4.1",
+    "less": "^4.3.0",
+    "less-loader": "^12.2.0",
+    "typescript": "^5.8.3"
+  }
+}
