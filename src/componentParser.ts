@@ -67,11 +67,12 @@ const buildComponent = (
   let jsPath = "";
   const nativePath = join(
     __dirname,
-    `./nativeComponents/${comp.component}.html`
+    `nativeComponents`,
+    `${comp.component}.html`
   );
   if (existsSync(nativePath)) {
     componentPath = nativePath;
-    jsPath = join(__dirname, `./nativeComponents/${comp.component}.js`);
+    jsPath = join(__dirname, `nativeComponents`, `${comp.component}.js`);
   } else {
     // mkdirSync("nativeComponents", { recursive: true });
     componentPath = `${dir}/${comp.component}.html`;
